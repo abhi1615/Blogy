@@ -11,8 +11,11 @@
 
 
                 <?php
-                $query = "SELECT * FROM posts";
+                $query = "SELECT * FROM posts WHERE post_status = 'Published' ";
                 $select_all_posts_query = mysqli_query($connection, $query);
+                if(mysqli_affected_rows($connection)==0) {
+                    echo "<h1 class='text-center'>No Post Sorry </h1>";
+                }
                     while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
                         $post_id = $row['post_id'];
                         $post_title = $row['post_title'];
@@ -43,7 +46,7 @@
 
                 <hr>
 
-                    <?php } ?>
+                    <?php }  ?>
 
             </div>
 

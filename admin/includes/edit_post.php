@@ -28,6 +28,7 @@
         $query = "UPDATE posts SET post_image = '$post_image', post_category_id = '$post_category_id', post_title = '$post_title', post_date = now(), post_author = '$post_author', post_status = '$post_status',  post_tags = '$post_tags', post_content = '$post_content' WHERE post_id = {$the_post_id} ";
         $update_query = mysqli_query($connection, $query);
         confirmQuery($update_query);
+        header("Location: posts.php");
     }
 
 
